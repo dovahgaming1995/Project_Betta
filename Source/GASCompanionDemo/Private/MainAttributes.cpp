@@ -97,6 +97,14 @@ void UMainAttributes::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
     DOREPLIFETIME_CONDITION_NOTIFY(UMainAttributes, AttackSpeed, COND_None, REPNOTIFY_Always);
 
     DOREPLIFETIME_CONDITION_NOTIFY(UMainAttributes,WaveLevel,COND_None,REPNOTIFY_Always)
+    
+     DOREPLIFETIME_CONDITION_NOTIFY(UMainAttributes,Gold,COND_None,REPNOTIFY_Always)
+     
+    DOREPLIFETIME_CONDITION_NOTIFY(UMainAttributes,Gems,COND_None,REPNOTIFY_Always)
+    
+    
+    
+    
 }
 
 
@@ -201,3 +209,18 @@ void UMainAttributes::OnRep_WaveLevel(const FGameplayAttributeData& OldWaveLevel
 {
     GAMEPLAYATTRIBUTE_REPNOTIFY(UMainAttributes,WaveLevel,OldWaveLevel)
 }
+
+void UMainAttributes::OnRep_Gold(const FGameplayAttributeData& OldGold)
+{
+    GAMEPLAYATTRIBUTE_REPNOTIFY(UMainAttributes,Gold,OldGold)
+}
+
+
+void UMainAttributes::OnRep_Gems(const FGameplayAttributeData& OldGems)
+{
+        GAMEPLAYATTRIBUTE_REPNOTIFY(UMainAttributes,Gems,OldGems)
+}
+
+
+
+
