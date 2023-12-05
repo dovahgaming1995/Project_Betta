@@ -8,9 +8,6 @@
 #include "Kismet/GameplayStatics.h"
 
 
-APc_TopDownShooterController::APc_TopDownShooterController()
-{
-}
 
 void APc_TopDownShooterController::spawnCharacter(TSubclassOf<ACharacter> characterClass)
 {
@@ -44,63 +41,8 @@ void APc_TopDownShooterController::spawnCharacter(TSubclassOf<ACharacter> charac
 	{
 		Possess(pawnCharacter);
 	}
-
-
+	
 }
 
-	bool APc_TopDownShooterController::ChangeCurveFloat(UTimelineComponent* timeLine,const UCurveFloat* curveTable,const FName trackName,float newTime)
-	{
-	// Check if the timeline and the curve are valid
-	if(timeLine && curveTable)
-	{
-		// Cast away the const-ness of CurveTable as SetFloatCurve expects a non-const pointer
-		timeLine->SetFloatCurve(const_cast<UCurveFloat*>(curveTable), trackName);
-        
-		// Set the new time for the timeline
-		timeLine->SetNewTime(newTime);
-		
-		// If the timeline is not playing, start playing it from the start
-		if(!timeLine->IsPlaying())
-		{
-			timeLine->PlayFromStart();
-		}
-		return true; // Return true if everything goes well
-	}
-	return false; // Return false if the timeline or curve is invalid
-	}
 
 
-void APc_TopDownShooterController::createTimeLine(UCurveFloat* CurveFloat)
-{
-	/*
-	// Time Line Init
-	MyTimeline = NewObject<UTimelineComponent>(this, FName("MyTimeline"));
-	
-	if (!MyTimeline)// Handle the error appropriately
-	{
-		return;
-	}
-	MyTimeline->CreationMethod = EComponentCreationMethod::UserConstructionScript;
-	this->BlueprintCreatedComponents.Add(MyTimeline);
-
-	// Create float Track instance
-	FOnTimelineFloat TimelineFunction;
-	TimelineFunction.BindUFunction(this, FName("callable"));
-	MyTimeline->AddInterpFloat(CurveFloat, TimelineFunction);
-
-	// Create Event Track instance
-	FOnTimelineEvent TimelineEventFunction;
-	TimelineEventFunction.BindUFunction(this, FName("OnTimelineEvent"));
-	MyTimeline->AddEvent(2.0f, TimelineEventFunction);
-	
-	//Create Finished Func Instance 
-	FOnTimelineEventStatic FTimeLine;
-	FTimeLine.BindUFunction(this,FName("timeLineFinished"));
-	MyTimeline->SetTimelineFinishedFunc(FTimeLine);
-	
-	// Start The Time Line 
-	MyTimeline->RegisterComponent();
-	MyTimeline->PlayFromStart();
-	*/
-
-}

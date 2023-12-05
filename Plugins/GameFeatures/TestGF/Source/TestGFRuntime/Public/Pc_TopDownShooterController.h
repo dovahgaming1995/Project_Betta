@@ -11,21 +11,8 @@ UCLASS(Blueprintable,BlueprintType)
 class TESTGFRUNTIME_API APc_TopDownShooterController : public APlayerController
 {
 	GENERATED_BODY()
-	APc_TopDownShooterController();
 public:
 	UFUNCTION(BlueprintCallable , BlueprintAuthorityOnly , Category="PossessCharacter")
 	void spawnCharacter(TSubclassOf<ACharacter> characteClass);
 	/** Please add a function description */
-	UFUNCTION(BlueprintCallable , Category="WaveSystem")
-    bool ChangeCurveFloat(UTimelineComponent* timeLine,const UCurveFloat* curveTable,const FName trackName,const float newTime);
-	UFUNCTION(BlueprintImplementableEvent,Category="WaveSystem")
-	void callable(float Value);
-	UFUNCTION(BlueprintImplementableEvent,Category="WaveSystem")
-	void timeLineFinished();
-	
-	UPROPERTY(EditAnywhere)
-	UTimelineComponent* MyTimeline;
-	
-	UFUNCTION(BlueprintCallable,Category="testWave")
-	void createTimeLine(UCurveFloat* CurveFloat);
 };
