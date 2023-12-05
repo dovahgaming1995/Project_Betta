@@ -34,6 +34,9 @@ public:
     FGameplayAttributeData Level = 0.0;
     ATTRIBUTE_ACCESSORS(UXPAttributeSet, Level)    
 
+	UPROPERTY(BlueprintReadOnly,ReplicatedUsing=OnRep_xp)
+	FGameplayAttributeData xp=100;
+	ATTRIBUTE_ACCESSORS(UXPAttributeSet, xp);
 protected:
     
     UFUNCTION()
@@ -44,4 +47,7 @@ protected:
 
     UFUNCTION()
     virtual void OnRep_Level(const FGameplayAttributeData& OldLevel);
+
+	UFUNCTION()
+	virtual void OnRep_xp(const FGameplayAttributeData& OldXp);
 };

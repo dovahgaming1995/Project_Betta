@@ -14,7 +14,12 @@ public class GASCompanionDemo : ModuleRules
 		{
 			"GASCompanion",
 			"GameplayTags",
-			"GameplayAbilities"
+			"GameplayAbilities",
+			"PlayFab", "PlayFabCpp", "PlayFabCommon"
 		});
+		// Here is where you should set these flags
+		bUseAVX = true;
+		bEnableExceptions = true;
 	}
+
 }
